@@ -25,8 +25,8 @@
 1. Клонируем репозиторий:
 
 ```bash
-git clone <URL>
-cd <repo>
+git clone git@github.com:ChornyChay1/test-avito.git
+cd test-avito
 ```
  
 2. Запуск:
