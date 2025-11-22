@@ -8,11 +8,11 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: pr_db
-      DATABASE_URL: postgresql+asyncpg://postgres:postgres@db:5432/pr_db
     ports:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./init-test-db.sql:/docker-entrypoint-initdb.d/init-test-db.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
@@ -31,6 +31,7 @@ services:
     volumes:
       - .:/app
     command: sh -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8080 --reload"
+ 
 
 volumes:
   pgdata:

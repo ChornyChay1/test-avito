@@ -39,6 +39,22 @@ docker-compose up --build
 
 ---
 
+## Тестовая база и запуск тестов
+
+Поднимаем тестовую базу PostgreSQL в Docker:
+
+```bash
+docker run --name pr_db_test -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=pr_db_test -p 5433:5432 -d postgres:15
+```
+
+Запуск тестов:
+
+```bash
+python -m pytest
+```
+
+---
+
 ## API
 
 ### Teams

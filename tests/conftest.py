@@ -25,7 +25,6 @@ TEST_DB_URL = os.getenv(
     "postgresql+asyncpg://postgres:postgres@localhost:5433/pr_db_test",
 )
 
-# --- Асинхронный движок ---
 engine = create_async_engine(TEST_DB_URL, echo=False, future=True)
 AsyncSessionLocal = sessionmaker(
     engine, class_=AsyncSession, expire_on_commit=False
